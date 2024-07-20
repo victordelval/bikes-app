@@ -1,7 +1,9 @@
 import NetworkList from "@/components/network-list/network-list";
-import { networks } from "@/data/mocks";
+import { getNetworks } from "@/data/networks";
 
-export default function NetworksPage() {
+export default async function NetworksPage() {
+  const networks = await getNetworks();
+
   return (
     <>
       <h1>Discover bike networks</h1>
