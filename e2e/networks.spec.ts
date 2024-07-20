@@ -1,4 +1,5 @@
-import { test, expect } from "@playwright/test";
+import { expect, test } from "@playwright/test";
+
 import defineConfig from "../playwright.config";
 
 const baseURL = defineConfig.use?.baseURL;
