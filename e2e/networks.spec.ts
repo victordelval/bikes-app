@@ -17,12 +17,10 @@ test.describe("Networks pages", () => {
   test("should navigate to the details page of a network", async ({ page }) => {
     await page
       .locator("li")
-      .filter({ hasText: /network 1/i })
+      .filter({ hasText: /bicimad/i })
       .getByRole("link")
       .click();
-    await expect(page).toHaveURL(baseURL + "/network-1");
-    await expect(
-      page.getByRole("heading", { name: /network-1/i }),
-    ).toBeVisible();
+    await expect(page).toHaveURL(baseURL + "/bicimad");
+    await expect(page.getByRole("heading", { name: /bicimad/i })).toBeVisible();
   });
 });
