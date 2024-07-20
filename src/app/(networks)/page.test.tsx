@@ -1,7 +1,8 @@
-import { describe, expect, test } from "vitest";
 import { render, screen } from "@testing-library/react";
-import Page from "./page";
+import { describe, expect, test } from "vitest";
+
 import Layout from "./layout";
+import Page from "./page";
 
 describe("Networks page", () => {
   test("renders the layout with its children", () => {
