@@ -10,8 +10,10 @@ describe("Networks page", () => {
     expect(screen.getByText(/children/i)).toBeInTheDocument();
   });
 
-  test("renders the page with the title", () => {
-    render(<Page />);
+  test("renders the page with the title", async () => {
+    const page = await Page();
+    render(page);
+
     expect(
       screen.getByRole("heading", {
         level: 1,
