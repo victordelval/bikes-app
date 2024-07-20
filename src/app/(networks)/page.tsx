@@ -4,7 +4,7 @@ export default function NetworksPage() {
   return (
     <>
       <h1>Discover bike networks</h1>
-      <Link href={`/${'bicimad'}`}>Details Bicimad</Link>
+      <Link href={`/${'bicimad'}`}>Details</Link>
     </>
   );
 }
