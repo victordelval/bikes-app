@@ -15,9 +15,14 @@ test.describe("Networks pages", () => {
   });
 
   test("should navigate to the details page of a network", async ({ page }) => {
-    await page.getByRole("link").click();
-    await expect(page).toHaveURL(baseURL + "/bicimad");
-    await expect(page.locator("h1")).toContainText(/bicimad/i);
-    await expect(page.getByRole("heading", { name: /bicimad/i })).toBeVisible();
+    await page
+      .locator("li")
+      .filter({ hasText: /network 1/i })
+      .getByRole("link")
+      .click();
+    await expect(page).toHaveURL(baseURL + "/network-1");
+    await expect(
+      page.getByRole("heading", { name: /network-1/i }),
+    ).toBeVisible();
   });
 });

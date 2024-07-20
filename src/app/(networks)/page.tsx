@@ -1,10 +1,11 @@
-import Link from "next/link";
+import NetworkList from "@/components/network-list/network-list";
+import { networks } from "@/data/mocks";
 
 export default function NetworksPage() {
   return (
     <>
       <h1>Discover bike networks</h1>
-      <Link href={`/${"bicimad"}`}>Details</Link>
+      <NetworkList networks={networks} />
     </>
   );
 }
