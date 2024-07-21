@@ -14,11 +14,15 @@ Here the initial configuration, the Tooling and the Testing framework are justif
 
 - `npm` is used as the package manager, for simplicity and convenience, although a good alternative would also be `pnpm`.
 
+- With git, commit message using conventional commit.
+
 - Initialization of the Next.js project with `create-next-app`, with all default options (TS, ESLint, Tailwind, `src/app/`)
 
 - Cleaning styles and page in app/ root, initial structure of pages grouped in `app/(networks)`, and Poppins font
 
 - Initial basic setup with Prettier integration, and some sorting plugins for imports and Tailwindcss classes.
+
+- Verify command, `npm run verify`, to check and pass the linter, the format and the automatic tests, to be used manually at least before committing the changes (pending automation with pre-commit hook).
 
 ### Testing framework
 
