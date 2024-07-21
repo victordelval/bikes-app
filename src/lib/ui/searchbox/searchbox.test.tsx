@@ -4,12 +4,12 @@ import { describe, expect, it } from "vitest";
 import SearchBox from "./searchbox";
 
 describe("<SearchBox />", () => {
-  it("should render", () => {
+  it("renders correctly", () => {
     render(<SearchBox />);
     expect(screen.getByRole("searchbox")).toBeInTheDocument();
   });
 
-  it("should render a placeholder by default", () => {
+  it("renders a placeholder by default", () => {
     render(<SearchBox />);
     expect(screen.getByPlaceholderText(/search/i)).toBeInTheDocument();
   });

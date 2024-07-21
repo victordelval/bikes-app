@@ -19,12 +19,12 @@ vi.mock("next/navigation", async () => {
 });
 
 describe("<NetworkSearch />", () => {
-  it("should render", () => {
+  it("renders correctly", () => {
     render(<NetworkSearch />);
     expect(screen.getByRole("searchbox")).toBeInTheDocument();
   });
 
-  it("should render a custom placeholder", () => {
+  it("renders a custom placeholder", () => {
     render(<NetworkSearch />);
     expect(screen.getByPlaceholderText(/search network/i)).toBeInTheDocument();
   });
