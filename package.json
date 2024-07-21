@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "verify": "npm run lint && npm run format && npm run test:nowatch && npm run test:e2e",
     "lint": "next lint && npm run eslint",
     "eslint": "npx eslint . --ext .ts,.tsx --fix",
     "eslint:check": "npx eslint . --ext .ts,.tsx",
@@ -13,6 +14,7 @@
     "format:check": "prettier --check --ignore-path .gitignore .",
     "test": "vitest",
     "test:cov": "vitest --coverage",
+    "test:nowatch": "vitest run --coverage",
     "test:e2e": "npx playwright test",
     "test:e2e:ui": "npx playwright test --ui",
     "test:e2e:report": "npx playwright show-report"
