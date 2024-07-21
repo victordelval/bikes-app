@@ -7,6 +7,10 @@ type NetworkListProps = {
 };
 
 export default function NetworkList({ networks }: NetworkListProps) {
+  if (networks.length === 0) {
+    return <p>No networks found</p>;
+  }
+
   return (
     <ul role="list" aria-label="network-list">
       {networks.map((network) => (
