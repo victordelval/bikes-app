@@ -8,6 +8,7 @@
   "plugins": ["import"],
   "rules": {
     "no-undef": "off",
+    "import/no-named-as-default": "off",
     // this is for sorting WITHIN an import
     "sort-imports": [
       "error",
