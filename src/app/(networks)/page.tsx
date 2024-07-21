@@ -39,7 +39,7 @@ export default async function NetworksPage({ searchParams }: Props) {
 
   return (
     <>
-      <div className="flex w-1/3 lg:min-w-[551px] flex-col space-y-6 p-6">
+      <div className="flex w-1/3 flex-col space-y-6 p-6 lg:min-w-[551px]">
         <p className="flex text-3xl">CycleMap</p>
         <h1 className="text-2xl">Discover bike networks</h1>
         <p>
