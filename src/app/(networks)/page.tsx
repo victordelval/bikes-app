@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import CountrySelector from "@/components/country-selector/country-selector";
 import NetworkList from "@/components/network-list/network-list";
 import NetworksSearch from "@/components/network-search/network-search";
+import NetworksMap from "@/components/networks-map/networks-map";
 import { getCountries } from "@/data/countries";
 import { getNetworks } from "@/data/networks";
 
@@ -60,9 +61,8 @@ export default async function NetworksPage({ searchParams }: Props) {
           </Suspense>
         </div>
       </div>
-      <div className="flex h-screen w-2/3 border-4 border-teal-400">
-        Mapa
-        {/* <Map data={filteredNetworks} /> */}
+      <div className="flex h-screen w-2/3">
+        <NetworksMap data={filteredNetworks} />
       </div>
     </>
   );
