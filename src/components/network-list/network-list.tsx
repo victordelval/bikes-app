@@ -12,7 +12,7 @@ export default function NetworkList({ networks }: NetworkListProps) {
   }
 
   return (
-    <ul role="list" aria-label="network-list">
+    <ul role="list" aria-label="network-list" className="space-y-4 divide-y">
       {networks.map((network) => (
         <NetworkItem key={network.id} network={network} />
       ))}

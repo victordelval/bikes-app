@@ -8,7 +8,7 @@ type NetworkItemProps = {
 
 export default function NetworkItem({ network }: NetworkItemProps) {
   return (
-    <li role="listitem" className="flex justify-between">
+    <li role="listitem" className="flex justify-between pt-4">
       <div className="flex flex-col">
         <h3 className="text-xl">{network.name}</h3>
         <p>
