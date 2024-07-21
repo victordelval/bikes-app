@@ -2,6 +2,8 @@ import { render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
+import { Network } from "@/types/network";
+
 import Layout from "./layout";
 import Page from "./page";
 
@@ -19,6 +21,15 @@ vi.mock("next/navigation", async () => {
     usePathname: vi.fn(),
   };
 });
+
+const mockMap = vi.fn();
+
+vi.mock("@/components/networks-map/networks-map", () => ({
+  default: (props: { data: Network[] }) => {
+    mockMap(props);
+    return <div>Networks Map</div>;
+  },
+}));
 
 describe("<NetworksPage />", () => {
   it("renders the layout with its children", () => {
@@ -149,6 +160,15 @@ describe("<NetworksPage />", () => {
       expect(within(countryList).getByRole("listitem")).toHaveTextContent(
         /spain/i,
       );
+    });
+  });
+
+  it("calls the networks map component to render", async () => {
+    const page = await Page({});
+    render(page);
+
+    await waitFor(async () => {
+      expect(mockMap).toHaveBeenCalled();
     });
   });
 });
