@@ -1,17 +1,32 @@
 import { render, screen } from "@testing-library/react";
-import { describe, expect, test } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import Layout from "./layout";
 import Page from "./page";
 
-describe("Networks page", () => {
-  test("renders the layout with its children", () => {
+vi.mock("next/navigation", async () => {
+  const actual = await vi.importActual("next/navigation");
+  return {
+    ...actual,
+    useRouter: vi.fn(() => ({
+      push: vi.fn(),
+      replace: vi.fn(),
+    })),
+    useSearchParams: vi.fn(() => ({
+      get: vi.fn(),
+    })),
+    usePathname: vi.fn(),
+  };
+});
+
+describe("<NetworksPage />", () => {
+  it("renders the layout with its children", () => {
     render(<Layout>{<div>children</div>}</Layout>);
     expect(screen.getByText(/children/i)).toBeInTheDocument();
   });
 
-  test("renders the page with the title", async () => {
-    const page = await Page();
+  it("renders the page with the title", async () => {
+    const page = await Page({});
     render(page);
 
     expect(
