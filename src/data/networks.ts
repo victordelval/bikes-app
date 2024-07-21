@@ -4,7 +4,6 @@ import { getCountries } from "./countries";
 
 const networksUrl = "http://api.citybik.es/v2/networks";
 
-
 /**
  * All networks
  */

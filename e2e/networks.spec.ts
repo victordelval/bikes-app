@@ -23,6 +23,7 @@ test.describe("Networks pages", () => {
       .click();
     await expect(page).toHaveURL(baseURL + "/bicimad");
     await expect(page.getByRole("heading", { name: /bicimad/i })).toBeVisible();
+    await expect(page.locator("h1")).toContainText(/bicimad/i);
   });
 
   test("renders a total of 790 networks", async ({ page }) => {
