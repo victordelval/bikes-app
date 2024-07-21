@@ -20,7 +20,7 @@ export default async function NetworkDetailsPage({ params }: Props) {
 
   return (
     <main className="flex">
-      <div className="flex w-1/3 flex-col space-y-6 p-6">
+      <div className="flex w-1/3 lg:min-w-[551px] flex-col space-y-6 p-6">
         <Link href="/">Go back home</Link>
         <h1 className="text-3xl">{networkDetails.name}</h1>
         <p>
