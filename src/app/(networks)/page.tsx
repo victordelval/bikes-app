@@ -1,7 +1,9 @@
 import { Suspense } from "react";
 
+import CountrySelector from "@/components/country-selector/country-selector";
 import NetworkList from "@/components/network-list/network-list";
 import NetworksSearch from "@/components/network-search/network-search";
+import { getCountries } from "@/data/countries";
 import { getNetworks } from "@/data/networks";
 
 type Props = {
@@ -14,24 +16,25 @@ type Props = {
 
 export default async function NetworksPage({ searchParams }: Props) {
   const search = searchParams?.search || "";
-  // TODO: country filter
-  // const country = searchParams?.country || "";
+  const country = searchParams?.country || "";
   // TODO: pagination
   // const currentPage = Number(searchParams?.page) || 1;
 
   const networks = await getNetworks();
+  const countries = await getCountries();
 
-  const filteredNetworks = networks.filter((network) => {
-    return (
-      network.name.toLowerCase().includes(search.toLowerCase()) ||
-      network.company.some((company) =>
-        company.toLowerCase().includes(search.toLowerCase()),
-      )
-    );
-  });
-  // .filter((network) => {
-  //   return country !== "" ? network.location.country.code === country : true;
-  // });
+  const filteredNetworks = networks
+    .filter((network) => {
+      return (
+        network.name.toLowerCase().includes(search.toLowerCase()) ||
+        network.company.some((company) =>
+          company.toLowerCase().includes(search.toLowerCase()),
+        )
+      );
+    })
+    .filter((network) => {
+      return country !== "" ? network.location.country.code === country : true;
+    });
 
   return (
     <>
@@ -43,11 +46,15 @@ export default async function NetworksPage({ searchParams }: Props) {
           turpis magna sem tempor amet faucibus. Arcu praesent viverra
           pellentesque nisi quam in rhoncus.
         </p>
-        <div className="flex justify-between">
+        <p
+          aria-label="total-networks"
+          className="hidden"
+        >{`total networks: ${filteredNetworks.length}`}</p>
+        <div className="flex justify-between gap-6">
           <NetworksSearch />
-          {/* <CountrySelector countries={countries} /> */}
+          <CountrySelector countries={countries} networks={networks} />
         </div>
-        <div className="h-auto overflow-scroll">
+        <div className="h-auto overflow-y-auto">
           <Suspense fallback={<div>Loading networks...</div>}>
             <NetworkList networks={filteredNetworks} />
           </Suspense>
