@@ -3,5 +3,5 @@ type Props = {
 };
 
 export default function NetworksLayout({ children }: Props) {
-  return <main className="h-screen">{children}</main>;
+  return <main className="flex h-screen overflow-hidden">{children}</main>;
 }
