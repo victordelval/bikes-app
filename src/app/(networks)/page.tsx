@@ -62,7 +62,7 @@ export default async function NetworksPage({ searchParams }: Props) {
         </div>
       </div>
       <div className="flex h-screen w-2/3">
-        <NetworksMap data={filteredNetworks} />
+        <NetworksMap networks={filteredNetworks} />
       </div>
     </>
   );

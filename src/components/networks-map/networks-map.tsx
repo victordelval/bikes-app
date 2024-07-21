@@ -23,11 +23,11 @@ const layerStyle: LayerProps = {
   },
 };
 
-export default function Map({ data }: { data: Network[] }) {
+export default function NetworksMap({ networks }: { networks: Network[] }) {
   const geojson = useMemo(() => {
     return {
       type: "FeatureCollection",
-      features: data.map((network) => {
+      features: networks.map((network) => {
         return {
           type: "Feature",
           geometry: {
@@ -40,7 +40,7 @@ export default function Map({ data }: { data: Network[] }) {
         };
       }),
     };
-  }, [data]);
+  }, [networks]);
 
   return (
     <ReactMap

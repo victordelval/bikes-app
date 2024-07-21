@@ -18,7 +18,7 @@ export async function getCountries(): Promise<Country[]> {
   return countriesDto.data;
 }
 
-export async function fetchCountries(): Promise<CountriesDTO> {
+async function fetchCountries(): Promise<CountriesDTO> {
   const file = await fs.readFile(process.cwd() + countriesUrl, "utf8");
 
   if (!file) {
