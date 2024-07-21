@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
-import { describe, expect, test } from "vitest";
+import { describe, expect, it } from "vitest";
 
 import Page from "./page";
 
-describe("Network details page", () => {
-  test("renders the page with the title", () => {
+describe("<NetworkDetailsPage />", () => {
+  it("renders the page with the title", () => {
     render(<Page params={{ id: "network-1" }} />);
     expect(
       screen.getByRole("heading", {
